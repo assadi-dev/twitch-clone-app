@@ -8,8 +8,9 @@ function Games(){
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await api.get('https://api.twitch.tv/helix/games/top')
-            //console.log(result);
+            const result = await api.get('https://api.twitch.tv/helix/games/top?first=100')
+              //const resultV = await api.get('https://api.twitch.tv/helix/search/categories');
+            //console.log(resultV.data.data);
             let dataTab = result.data.data;
             let finalArray = dataTab .map(game=>{
                 let newUrl = game.box_art_url

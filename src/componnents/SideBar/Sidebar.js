@@ -5,10 +5,26 @@ import {Link }from 'react-router-dom'
 function Sidebar(){
 
     const[topStreams, setTopStreams] = useState([]);
+    const [numberTop,setNumberTop] = useState([6,"Afficher plus"]);
+    const [showOn,setShowOn] = useState(false);
+
+    function showMore(){
+        
+        setShowOn(!showOn);
+        
+        showOn ?  setNumberTop([10,"Afficher moins"]) : setNumberTop([6,"Afficher plus"]);
+
+
+        
+    }
+
+
+
+    let language = window.navigator.language;
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await api.get("https://api.twitch.tv/helix/streams?language=fr&");
+            const response = await api.get(`https://api.twitch.tv/helix/streams?language=${language}&`);
             let dataArray = response.data.data;
 
             let gamingId = dataArray.map(stream =>{
@@ -74,12 +90,12 @@ function Sidebar(){
                 return stream;
             })
 
-            setTopStreams(finalArray.slice(0,6));
+            setTopStreams(finalArray.slice(0,numberTop[0]));
         }
 
         fetchData(); 
        
-    }, []);
+    }, [numberTop]);
 
     //console.log(topStreams);
 
@@ -110,9 +126,12 @@ function Sidebar(){
 
                     </li>
                     </Link>
+
                 ))}
 
             </ul>
+
+            <p className= "showMore" onClick={showMore} >{numberTop[1]}</p>
         </div>
     )
 

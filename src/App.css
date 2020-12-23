@@ -139,6 +139,13 @@ PARTIE SIDEBAR
   color: #efebf5;
 }
 
+.showMore
+{
+   color: #efebf5;
+   margin-top: 1rem;
+   cursor: pointer;
+}
+
 .containerFlexSidebar
 {
   padding: 5px 10px 5px 10px;
@@ -587,12 +594,30 @@ PARTIE GAMES STREAMS
   padding-bottom: 10px;
 }
 
+
 .sousTitreViewers
 {
   font-size: 25px;
   padding-left:260 ;
   padding-bottom: 50px;
 }
+
+.langDisplay
+{
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 1.8rem;
+  cursor: pointer;
+}
+
+.langDisplay span
+{
+  color: #6441a4;
+  text-transform: uppercase;
+  
+}
+
+
 
 .sousTitreViewers span 
 {

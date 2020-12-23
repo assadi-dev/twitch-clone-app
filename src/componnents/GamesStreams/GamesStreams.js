@@ -5,21 +5,41 @@ import {useLocation, useParams,Link} from 'react-router-dom';
 
 function GamesStream(){
 
-    const [streamData,setStreamData] = useState([]);
-    const [viewers, setViewers] = useState (0);
-
     let location = useLocation();
     let {slug} = useParams();
-    let language = window.navigator.language;
+
+    const [streamData,setStreamData] = useState([]);
+    const [viewers, setViewers] = useState (0);
+    const [apiURL,setApiURL] = useState(`https://api.twitch.tv/helix/streams?game_id=${location.state.gameID}`);
+
+
+    
+    
 
   
 
     //console.log(location);
 
+   
+
+    function changeLanguage(){
+
+        let language = window.navigator.language;
+        let newURL = `https://api.twitch.tv/helix/streams?language=${language}&game_id=${location.state.gameID}`;
+        setApiURL(newURL);
+
+        document.querySelector(".langDisplay").style.display = "none"
+
+    }
+
+
+
+
+
     useEffect(() => {
         
         const fetchData = async () => {
-            const result = await api.get(`https://api.twitch.tv/helix/streams?language=${language}&game_id=${location.state.gameID}`);
+            const result = await api.get(apiURL);
 
             let dataArray = result.data.data;
 
@@ -82,7 +102,7 @@ function GamesStream(){
 
         fetchData();
 
-    }, []);
+    }, [apiURL]);
 
     return (
 
@@ -94,7 +114,12 @@ function GamesStream(){
 
             <h3 className="sousTitreViewers"><span >{viewers} </span> viewers sur {slug} </h3>
 
+                <p className="langDisplay" onClick={changeLanguage}>
+                    Afficher les streameur <span>{ window.navigator.language}</span>
+                </p>
+
             <div className="flexAccueil">
+
 
                 {streamData.map((stream,index)=>(
 

@@ -6,12 +6,24 @@ import {Link} from 'react-router-dom';
 function TopStreams(){
 
     const [channels,setChannels] = useState([]);
+    const [apiURL,setApiURL] = useState(`https://api.twitch.tv/helix/streams?first=100`);
+
 
     let language = window.navigator.language;
 
+        function changeLanguage(){
+
+        let language = window.navigator.language;
+        let newURL = `https://api.twitch.tv/helix/streams?language=${language}&first=100`;
+        setApiURL(newURL);
+
+        document.querySelector(".langDisplay").style.display = "none"
+
+    }
+
         useEffect(() => {
         const fetchData = async () => {
-            const response = await api.get(`https://api.twitch.tv/helix/streams?language=${language}&`);
+            const response = await api.get(apiURL);
             let dataArray = response.data.data;
 
             let gamingId = dataArray.map(stream =>{
@@ -87,12 +99,16 @@ function TopStreams(){
 
         fetchData(); 
        
-    }, []);
+    }, [apiURL]);
 
 
     return(
         <div>
             <h1 className="titreGames">Stream Populaire</h1>
+
+                <p className="langDisplay" onClick={changeLanguage}>
+                    Afficher les top streameur <span>{ window.navigator.language}</span>
+                </p>
             
             <div className="flexAccueil">
 

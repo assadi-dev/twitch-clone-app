@@ -123,6 +123,7 @@ PARTIE SIDEBAR
   width: 240px;
   background: #19171c;
   height: 100vh;
+  
 }
 
 .titreSideBar
@@ -137,6 +138,22 @@ PARTIE SIDEBAR
 {
   padding: 0 0 0 10px;
   color: #efebf5;
+
+}
+
+.sideBarContain
+{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.chaineRecoContainer
+{
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+  
 }
 
 .showMore
@@ -230,6 +247,13 @@ PARTIE SIDEBAR
   }
 }
 
+@media screen and (max-height: 480px)
+{
+  .chaineRecoContainer
+  {
+    height: 220px;
+  }
+}
 
 /*
 ///////////////////////////////////////////////////////////////

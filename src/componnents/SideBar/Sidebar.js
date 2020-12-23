@@ -102,36 +102,52 @@ function Sidebar(){
   return(
         <div className="sideBar">
             <h2 className="titreSideBar" >Chaines recommandées </h2>
-            <ul className="listStream" >
 
-                {topStreams.map((stream,index)=>(
-                    <Link key={index} className="liens" to ={{
-                            pathname: `/live/${stream.login}`
-                        }}
-                    >
-                    <li key={index} className="containerFlexSidebar" >
+            <div className="sideBarContain">
+
+                <div className="chaineRecoContainer">
                     
-                        <img src={stream.truePic} alt="Profil_Picture" className="profilePicRonde"/>
-                        <div className="infoUser">
-                        <div className="streamUser">{stream.user_name}</div>
-                        <div className="gameNamesSidebar">{stream.gameName}</div>
-                        </div>
+                                <ul className="listStream" >
 
-                        <div className="viewerRight">
-                            <div className="pointRouge"></div>
-                            <div>{stream.viewer_count}</div>
-                        </div>
-
+                    {topStreams.map((stream,index)=>(
+                        <Link key={index} className="liens" to ={{
+                                pathname: `/live/${stream.login}`
+                            }}
+                        >
+                        <li key={index} className="containerFlexSidebar" >
                         
+                            <img src={stream.truePic} alt="Profil_Picture" className="profilePicRonde"/>
+                            <div className="infoUser">
+                            <div className="streamUser">{stream.user_name}</div>
+                            <div className="gameNamesSidebar">{stream.gameName}</div>
+                            </div>
 
-                    </li>
-                    </Link>
+                            <div className="viewerRight">
+                                <div className="pointRouge"></div>
+                                <div>{stream.viewer_count}</div>
+                            </div>
 
-                ))}
+                            
 
-            </ul>
+                        </li>
+                        </Link>
 
-            <p className= "showMore" onClick={showMore} >{numberTop[1]}</p>
+                    ))}
+
+                </ul>
+
+                    <p className= "showMore" onClick={showMore} >{numberTop[1]}</p>
+ 
+                </div>
+
+               
+                 
+            </div>
+
+          
+
+
+
         </div>
     )
 

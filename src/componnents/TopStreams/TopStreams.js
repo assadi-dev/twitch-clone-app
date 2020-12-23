@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import api from '../Api/Api';
 import {Link} from 'react-router-dom';
+import {Helmet} from "react-helmet";
 
 
 function TopStreams(){
@@ -104,6 +105,10 @@ function TopStreams(){
 
     return(
         <div>
+            <Helmet>
+            <title>Top Streams</title>
+          </Helmet>
+
             <h1 className="titreGames">Stream Populaire</h1>
 
                 <p className="langDisplay" onClick={changeLanguage}>

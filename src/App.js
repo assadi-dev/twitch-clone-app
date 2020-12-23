@@ -7,7 +7,7 @@ import TopStreams from './componnents/TopStreams/TopStreams';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Live from './componnents/Live/Live';
 import GamesStreams from './componnents/GamesStreams/GamesStreams';
-
+import {Helmet} from "react-helmet";
 
 
 
@@ -22,6 +22,9 @@ class App extends Component {
 
       <Router>
         <div className="App">
+          <Helmet>
+            <title>Twitch clone app</title>
+          </Helmet>
           <Header />
           <Sidebar />
           <Switch>

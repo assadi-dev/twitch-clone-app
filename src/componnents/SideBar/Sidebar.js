@@ -21,6 +21,8 @@ function Sidebar(){
 
 
     let language = window.navigator.language;
+    language = language.split('-');
+    language = language[0];
 
     useEffect(() => {
         const fetchData = async () => {

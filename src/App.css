@@ -26,6 +26,7 @@ PARTIE HEADER
   position: fixed;
   width: 100%;
   z-index: 100;
+
 }
 
 .listesMenu {
@@ -109,6 +110,52 @@ PARTIE HEADER
 {
   width: 25px;
 }
+
+@media screen and (max-width: 950px)
+{
+  .liensNav:nth-child(4)
+  {
+    width: 550px;
+  }
+}
+
+@media screen and (max-width: 900px)
+{
+  .listesMenu 
+  {
+    flex-direction:column;
+    height: 250px;
+    padding-top: 50px;
+  }
+
+  .liensNav
+  {
+    height: 100px;
+    background-color: #6441a4;
+    width: 100%;
+  }
+
+  .liensNav:nth-child(4)
+  {
+    width: 100% !important;
+    padding: 10px 0 20px 0;
+  }
+
+  .formSubmit
+  {
+    justify-content: center;
+  }
+
+  .menuResBtn
+  {
+    display: block !important;
+    z-index: 1000;
+  }
+
+
+}
+
+
 
 /*
 ///////////////////////////////////////////////////////////////
@@ -346,6 +393,11 @@ PARTIE GAMES
 {
   text-decoration: none;
   color: #fff;
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
 }
 
 .titleGameCard
@@ -711,3 +763,111 @@ PARTIE GAMES STREAMS
   }
 
 }
+
+
+/*
+///////////////////////////////////////////////////////////////
+RESULTATS RECHERCHES
+//////////////////////////////////////////////////////////////
+*/
+
+.containerDecalResultat
+{
+  overflow:hidden;
+  padding-top:50px;
+  padding-left: 239px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+.containerDecalResultat h4
+{
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 24px;
+
+}
+
+.cardResultat
+{
+  height: 580px;
+  width: 350px;
+  margin-bottom: 35px;
+  position: relative;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 2px 11px 36px -16px rgba(0,0,0,0.75);
+}
+
+.bodyCardResultat
+{
+  height: 230px;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.bodyCardResultat .btnCard
+{
+  align-self: flex-end;
+}
+
+.streamerDescription
+{
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.btnCard:hover
+{
+  background:rgba(255,191,0,1);
+  color:rgb(0,0,0);
+  font-weight: bold;
+}
+
+@media screen and (max-width:1200px)
+{
+  .containerDecalResultat
+  {
+    overflow-y:hidden;
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+
+
+}
+
+@media screen and (max-width:600px)
+{
+    .containerDecalResultat h4
+  {
+    padding-bottom: 20px;
+  
+  }
+
+  .cardResultat
+  {
+    height: 580px;
+    width: 300px;
+  }
+  
+
+
+
+}
+

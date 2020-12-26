@@ -9,18 +9,24 @@ function TopStreams(){
     const [channels,setChannels] = useState([]);
     const [apiURL,setApiURL] = useState(`https://api.twitch.tv/helix/streams?first=100`);
 
+    
 
     let language = window.navigator.language;
+    language = language.split('-');
+    language = language[0];
+
+   
 
         function changeLanguage(){
 
-        let language = window.navigator.language;
-        let newURL = `https://api.twitch.tv/helix/streams?language=${language}&first=100`;
-        setApiURL(newURL);
+            let language = window.navigator.language;
+            language = language.split('-');
+            let newURL = `https://api.twitch.tv/helix/streams?language=${language[0]}&first=100`;
+            setApiURL(newURL);
 
-        document.querySelector(".langDisplay").style.display = "none"
+            document.querySelector(".langDisplay").style.display = "none"
 
-    }
+        }
 
         useEffect(() => {
         const fetchData = async () => {
@@ -112,7 +118,7 @@ function TopStreams(){
             <h1 className="titreGames">Stream Populaire</h1>
 
                 <p className="langDisplay" onClick={changeLanguage}>
-                    Afficher les top streameur <span>{ window.navigator.language}</span>
+                    Afficher les top streameur <span>{ language}</span>
                 </p>
             
             <div className="flexAccueil">

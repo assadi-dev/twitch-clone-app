@@ -69,7 +69,7 @@ function Live(){
 
           
 
-        onStream == 0 ? 
+        onStream === 0 ? 
 
          <div className="containerDecal">
 

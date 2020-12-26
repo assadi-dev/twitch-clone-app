@@ -14,7 +14,9 @@ function GamesStream(){
 
 
     
-    
+    let language = window.navigator.language;
+    language = language.split('-');
+    language = language[0];
 
   
 
@@ -25,6 +27,8 @@ function GamesStream(){
     function changeLanguage(){
 
         let language = window.navigator.language;
+        language = language.split('-');
+        language = language[0];
         let newURL = `https://api.twitch.tv/helix/streams?language=${language}&game_id=${location.state.gameID}`;
         setApiURL(newURL);
 
@@ -115,7 +119,7 @@ function GamesStream(){
             <h3 className="sousTitreViewers"><span >{viewers} </span> viewers sur {slug} </h3>
 
                 <p className="langDisplay" onClick={changeLanguage}>
-                    Afficher les streameur <span>{ window.navigator.language}</span>
+                    Afficher les streameur <span>{ language }</span>
                 </p>
 
             <div className="flexAccueil">

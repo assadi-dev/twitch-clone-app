@@ -8,6 +8,7 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Live from './componnents/Live/Live';
 import GamesStreams from './componnents/GamesStreams/GamesStreams';
 import {Helmet} from "react-helmet";
+import Resultat from './componnents/Resultat/Resultat';
 
 
 
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/top-streams" component={TopStreams}/>
             <Route exact path="/live/:slug" component={Live} />
             <Route exact path="/game/:slug" component={GamesStreams} />
+            <Route exact path="/resultat/:slug" component={Resultat} />
           </Switch>
           
       </div>

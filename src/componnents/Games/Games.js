@@ -12,7 +12,7 @@ function Games(){
               //const resultV = await api.get('https://api.twitch.tv/helix/search/categories');
             //console.log(resultV.data.data);
             let dataTab = result.data.data;
-            let finalArray = dataTab .map(game=>{
+            let finalArray = dataTab.map( game=> {
                 let newUrl = game.box_art_url
                 .replace("{width}","250")
                 .replace("{height}","300")

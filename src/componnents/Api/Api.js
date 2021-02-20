@@ -2,8 +2,8 @@ import axios from 'axios';
 
 let api = axios.create({
     headers:{
-        'Client-ID': '0o12o2olcnvy7akkfjjg1qdrg4k58q',
-        "Authorization": "Bearer grjg4q0nvldfillofjmwi8au7zczh3"
+        'Client-ID': process.env.REACT_APP_CLIENT_ID,
+        "Authorization": process.env.REACT_APP_BEARER
     }
 })
 

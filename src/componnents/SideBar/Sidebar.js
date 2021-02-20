@@ -20,11 +20,12 @@ function Sidebar(){
 
 
 
-    let language = window.navigator.language;
-    language = language.split('-');
-    language = language[0];
+    
 
     useEffect(() => {
+        let language = window.navigator.language;
+        language = language.split('-');
+        language = language[0];
         const fetchData = async () => {
             const response = await api.get(`https://api.twitch.tv/helix/streams?language=${language}&`);
             let dataArray = response.data.data;

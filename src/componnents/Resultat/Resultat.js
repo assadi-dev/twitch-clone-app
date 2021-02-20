@@ -9,14 +9,14 @@ function Resultat(){
 
 let {slug} = useParams();
 
-let cleanSearch = slug.replace(/ /g ,'');
 
-const [result,setResult] = useState(true);
+
+//const [result,setResult] = useState(true);
 const [streamerInfo, setStreamerInfo]= useState([]);
 
 
 useEffect(()=>{
-
+    let cleanSearch = slug.replace(/ /g ,'');
     const fetchData = async () => {
         const result = await api.get(`https://api.twitch.tv/helix/users?login=${cleanSearch}`);
         //console.log(result.data.data);
